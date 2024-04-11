@@ -143,12 +143,6 @@ int main() {
         // at this point, the client socket is not invalid so we can announce that a client has connected
         const char *clientIP = server.GetClientIP(clientAddress);
 
-
-        if (host == nullptr)
-        {
-            broadcaster.BroadcastError("Client connected from: " + std::string(clientIP));
-        }
-
         // if the client socket is invalid, print an error message and break the loop
         if (clientSocket == INVALID_SOCKET)
         {
