@@ -67,7 +67,7 @@ void Server::ReadIncomingMessages(const SOCKET &clientSocket, const char *client
     broadcaster.BroadcastError("Closed Client's socket!");
 
 
-    if (closeServer)
+    if (!closeServer)
     {
         return;
     }
