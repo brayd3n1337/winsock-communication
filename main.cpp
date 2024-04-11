@@ -106,6 +106,7 @@ int main() {
     {
         broadcaster.BroadcastError("Error creating socket: " + std::to_string(WSAGetLastError()));
         cleanup(serverSocket);
+        WSACleanup();
         return 1;
     }
 
@@ -125,7 +126,8 @@ int main() {
     {
         if (listen(serverSocket, SOMAXCONN) == SOCKET_ERROR)
         {
-            // broadcaster.BroadcastError("Error listening on socket: " + std::to_string(WSAGetLastError()));
+            closesocket(serverSocket);
+            WSACleanup();
             break;
         }
 
@@ -152,6 +154,8 @@ int main() {
         if (clientSocket == INVALID_SOCKET)
         {
             broadcaster.BroadcastError("Error accepting client connection: " + std::to_string(WSAGetLastError()));
+            cleanup(serverSocket);
+            WSACleanup();
             break;
         }
 
