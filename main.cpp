@@ -106,7 +106,6 @@ int main() {
     {
         broadcaster.BroadcastError("Error creating socket: " + std::to_string(WSAGetLastError()));
         cleanup(serverSocket);
-        WSACleanup();
         return 1;
     }
 
@@ -155,7 +154,6 @@ int main() {
         {
             broadcaster.BroadcastError("Error accepting client connection: " + std::to_string(WSAGetLastError()));
             cleanup(serverSocket);
-            WSACleanup();
             break;
         }
 
