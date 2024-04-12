@@ -1,0 +1,14 @@
+# ninja log v5
+6	722	7342315785882270	CMakeFiles/sockets.dir/broadcaster.cpp.obj	4f66adeef0c15a1b
+3	1031	7346642220718483	CMakeFiles/sockets.dir/main.cpp.obj	c03095aa88b637f9
+1031	1101	7346642221426115	sockets.exe	a6b6fb87044f5d4
+7	1437	7339813125510139	CMakeFiles/sockets.dir/client_socket.cpp.obj	8c73d864efc23e80
+3	1173	7346627146900232	CMakeFiles/sockets.dir/server.cpp.obj	663823a4a972303d
+2	1087	7346642318507893	CMakeFiles/sockets.dir/main.cpp.obj	c03095aa88b637f9
+1087	1160	7346642319215532	sockets.exe	a6b6fb87044f5d4
+9	352	7346643738451831	CMakeFiles/sockets.dir/broadcaster.cpp.obj	4f66adeef0c15a1b
+2	1132	7346643746211690	CMakeFiles/sockets.dir/main.cpp.obj	c03095aa88b637f9
+6	1409	7346643749012319	CMakeFiles/sockets.dir/server.cpp.obj	663823a4a972303d
+1409	1491	7346643749809652	sockets.exe	a6b6fb87044f5d4
+2	1239	7346646931116575	CMakeFiles/sockets.dir/main.cpp.obj	c03095aa88b637f9
+1239	1321	7346646931983286	sockets.exe	a6b6fb87044f5d4

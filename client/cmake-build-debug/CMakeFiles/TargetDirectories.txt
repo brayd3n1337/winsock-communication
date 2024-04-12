@@ -1,0 +1,3 @@
+C:/Users/creid/CLionProjects/clientsocket/cmake-build-debug/CMakeFiles/clientsocket.dir
+C:/Users/creid/CLionProjects/clientsocket/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/creid/CLionProjects/clientsocket/cmake-build-debug/CMakeFiles/rebuild_cache.dir
