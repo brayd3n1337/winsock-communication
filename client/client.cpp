@@ -12,7 +12,7 @@ void Client::SendMessage(const std::string &message, const SOCKET &clientSocket)
     {
         if (message.empty())
         {
-            return;
+            break;
         }
 
         if (!messageSent)
@@ -23,7 +23,7 @@ void Client::SendMessage(const std::string &message, const SOCKET &clientSocket)
             if (result == SOCKET_ERROR)
             {
                 std::cerr << "Failed to send message!" << '\n';
-                return;
+                break;
             }
 
             std::cout << "Sent message: " << message << '\n';
