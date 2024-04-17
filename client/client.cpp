@@ -1,6 +1,5 @@
 #include "client.h"
 #include <iostream>
-#include "thread"
 
 
 void Client::SendMessage(const std::string &message, const SOCKET &clientSocket)
@@ -17,7 +16,6 @@ void Client::SendMessage(const std::string &message, const SOCKET &clientSocket)
 
         if (!messageSent)
         {
-
             const int result = send(clientSocket, message.c_str(), int(message.size()), 0);
 
             if (result == SOCKET_ERROR)
@@ -32,6 +30,8 @@ void Client::SendMessage(const std::string &message, const SOCKET &clientSocket)
         }
     }
 
-    WSACleanup();
+    // cleanup when loop breaks/ends
+    // loop ends/breaks when the client disconnects or server shutdowns.
     closesocket(clientSocket);
+    WSACleanup();
 }

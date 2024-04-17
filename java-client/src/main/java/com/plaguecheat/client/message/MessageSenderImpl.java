@@ -4,7 +4,9 @@ import com.google.inject.Inject;
 import com.plaguecheat.client.connection.ServerConnector;
 
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,13 +46,36 @@ public final class MessageSenderImpl implements MessageSender {
 
             // send the message
             try {
-                final ObjectOutputStream objectOutputStream = new ObjectOutputStream(this.serverConnector.getOutputStream());
+                final OutputStream outputStream = socket.getOutputStream();
 
-                objectOutputStream.writeObject(message);
-                objectOutputStream.flush();
+                outputStream.write(message.getBytes(StandardCharsets.UTF_8));
+                outputStream.flush();
+
+                // final ObjectOutputStream objectOutputStream = new ObjectOutputStream(this.serverConnector.getOutputStream());
+
+                // objectOutputStream.writeObject(message.getBytes(StandardCharsets.UTF_8));
+                //objectOutputStream.flush();
             } catch (final Exception exception) {
                 LOGGER.log(Level.SEVERE, "Failed to send message", exception);
             }
         });
     }
+
+    public void shutdown()
+    {
+        final OutputStream outputStream = this.serverConnector.getOutputStream();
+
+        EXECUTOR.shutdown();
+
+        try
+        {
+            outputStream.close();
+        }
+        catch (final Exception exception)
+        {
+            LOGGER.log(Level.SEVERE, "Failed to close output stream", exception);
+        }
+    }
+
+
 }

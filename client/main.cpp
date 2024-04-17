@@ -31,8 +31,9 @@ public:
 
 
 int main() {
-    WSADATA wsaData;
     const Broadcaster broadcaster;
+
+    WSADATA wsaData;
     Client client;
 
     const int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -56,11 +57,15 @@ int main() {
     // server address
     const ServerInfo serverInfo(8080, "127.0.0.1");
 
-
     sockaddr_in serverAddress{};
 
+    // define ipv4
     serverAddress.sin_family = AF_INET;
+
+    // set the ip to the server ip
     serverAddress.sin_addr.s_addr = inet_addr(serverInfo.GetIp().c_str());
+
+    // set the port to the server port
     serverAddress.sin_port = htons(serverInfo.GetPort());
 
     const int connectionResult = connect(clientSocket, reinterpret_cast<sockaddr*>(&serverAddress), sizeof(serverAddress));
@@ -69,6 +74,9 @@ int main() {
     if (connectionResult == SOCKET_ERROR)
     {
         broadcaster.BroadcastError("Failed to connect to the server!");
+        closesocket(clientSocket);
+        WSACleanup();
+
         return 1;
     }
 

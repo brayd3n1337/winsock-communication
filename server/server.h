@@ -50,7 +50,9 @@ public:
      * @param closeServer whether to close the server
      * @param serverSocket the server socket
      */
-    void ReadIncomingMessages(const SOCKET &clientSocket, const char *clientIp, Broadcaster broadcaster, const sockaddr_in &clientAddress, const bool &closeServer, const SOCKET &serverSocket);
+    void ReadIncomingMessages(const SOCKET &clientSocket, const char *clientIp, Broadcaster &broadcaster, const sockaddr_in &clientAddress, const bool &closeServer, const SOCKET &serverSocket);
+
+    int GetClientCount() const;
 };
 
 

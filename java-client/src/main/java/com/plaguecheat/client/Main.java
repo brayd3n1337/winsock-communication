@@ -30,6 +30,7 @@ public final class Main {
             LOGGER.log(Level.INFO, "Closing Client Socket");
             try
             {
+                messageSender.shutdown();
                 socket.close();
             }
             catch (final Exception exception)

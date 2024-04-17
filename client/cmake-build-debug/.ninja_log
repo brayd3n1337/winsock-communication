@@ -10,3 +10,8 @@
 1195	1266	7346646963252440	clientsocket.exe	2b057416863d2a46
 2	981	7346647313062124	CMakeFiles/clientsocket.dir/client.cpp.obj	ddcacd27e8132781
 981	1050	7346647313737878	clientsocket.exe	2b057416863d2a46
+3	1072	7350251840767290	CMakeFiles/clientsocket.dir/client.cpp.obj	ddcacd27e8132781
+7	1092	7350251840966626	CMakeFiles/clientsocket.dir/main.cpp.obj	d21a2aee4afc0e6e
+1092	1174	7350251841753990	clientsocket.exe	2b057416863d2a46
+2	1215	7350855708365555	CMakeFiles/clientsocket.dir/main.cpp.obj	d21a2aee4afc0e6e
+1215	1403	7350855710219401	clientsocket.exe	2b057416863d2a46

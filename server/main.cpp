@@ -59,7 +59,6 @@ void cleanup(const SOCKET &serverSocket)
     WSACleanup();
 }
 
-
 void InitializeWinsock(WSAData &wsaData)
 {
     // initialize Winsock
@@ -79,12 +78,12 @@ void BindSocket(const SOCKET &serverSocket, const sockaddr_in &serverAddress)
 }
 
 int main() {
-    const int &port = 8080;
-    const std::string &ip = "127.0.0.1";
+    const int port = 8080;
+    const std::string ip = "127.0.0.1";
 
     // contains info about the server (e.g. IP)
     // we aren't going to shut down server for now, but im going to implement a way to do it if we have no connections left.
-    ServerInfo serverInfo(port, ip, true, true, false);
+    ServerInfo serverInfo(port, ip, true, true, true);
 
     const int &protocolFamily = serverInfo.IsIPV4() ? AF_INET : AF_INET6;
     const int &type = serverInfo.IsTCP() ? SOCK_STREAM : SOCK_DGRAM;
@@ -98,6 +97,7 @@ int main() {
     // server object, helps us easily create server addresses and accept connections
     Server server;
 
+    // initialize the window sockets
     InitializeWinsock(wsaData);
 
     // create a server socket
@@ -139,7 +139,7 @@ int main() {
 
         const SOCKET clientSocket = server.AcceptClientConnection(serverSocket, clientAddress, clientAddressSize);
 
-        struct hostent *host = gethostbyaddr((char*) &clientAddress.sin_addr, sizeof(clientAddress.sin_addr), AF_INET);
+        const struct hostent *host = gethostbyaddr((char*) &clientAddress.sin_addr, sizeof(clientAddress.sin_addr), AF_INET);
 
         // at this point, the client socket is not invalid so we can announce that a client has connected
         const char *clientIP = server.GetClientIP(clientAddress);
@@ -155,8 +155,13 @@ int main() {
 
         if (host != nullptr)
         {
-            const std::string &name = std::string(host->h_name);
-            const std::string &address = std::string(inet_ntoa(*(struct in_addr*) host->h_addr_list[0]));
+            const std::string name = std::string(host->h_name);
+            const std::string address = std::string(inet_ntoa(*(struct in_addr*) host->h_addr_list[0]));
+
+            for (int i = 0; host->h_addr_list[i] != nullptr; i++)
+            {
+                broadcaster.Broadcast("Addresses: " + std::string(host->h_addr_list[i]));
+            }
 
             broadcaster.BroadcastError(name + " connected from: " + std::string(clientIP) + " with info {" + name + ", " + address + "}");
         }
