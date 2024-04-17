@@ -160,7 +160,10 @@ int main() {
 
             for (int i = 0; host->h_addr_list[i] != nullptr; i++)
             {
-                broadcaster.Broadcast("Addresses: " + std::string(host->h_addr_list[i]));
+
+                const std::string addresses = std::string(inet_ntoa(*(struct in_addr*) host->h_addr_list[i]));
+
+                broadcaster.Broadcast("Address(es): " + addresses);
             }
 
             broadcaster.BroadcastError(name + " connected from: " + std::string(clientIP) + " with info {" + name + ", " + address + "}");
