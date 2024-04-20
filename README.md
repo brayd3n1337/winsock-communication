@@ -1,4 +1,4 @@
-The purpose of the Winsock communication between these 3 languages is for me to become more familiar with the Winsocket APi and Sockets in general.
+The purpose of the Winsock communication between these 3 languages is for me to become more familiar with the Winsocket API and Sockets in general.
 
 
 TODO: 
