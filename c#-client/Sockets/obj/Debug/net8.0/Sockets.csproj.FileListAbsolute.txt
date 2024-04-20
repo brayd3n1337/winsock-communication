@@ -1,0 +1,14 @@
+C:\Users\creid\RiderProjects\Sockets\Sockets\bin\Debug\net8.0\Sockets.exe
+C:\Users\creid\RiderProjects\Sockets\Sockets\bin\Debug\net8.0\Sockets.deps.json
+C:\Users\creid\RiderProjects\Sockets\Sockets\bin\Debug\net8.0\Sockets.runtimeconfig.json
+C:\Users\creid\RiderProjects\Sockets\Sockets\bin\Debug\net8.0\Sockets.dll
+C:\Users\creid\RiderProjects\Sockets\Sockets\bin\Debug\net8.0\Sockets.pdb
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.AssemblyInfoInputs.cache
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.AssemblyInfo.cs
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.csproj.CoreCompileInputs.cache
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.dll
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\refint\Sockets.dll
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.pdb
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\Sockets.genruntimeconfig.cache
+C:\Users\creid\RiderProjects\Sockets\Sockets\obj\Debug\net8.0\ref\Sockets.dll
